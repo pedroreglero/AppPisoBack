@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pisoapp-backend
+spec:
+  selector:
+    matchLabels:
+      app: pisoapp-backend
+  template:
+    metadata:
+      labels:
+        app: pisoapp-backend
+    spec:
+      containers:
+      - name: pisoapp-backend
+        image: pedroreglero/pisoapp-backend:v1.0.15
+        ports:
+        - containerPort: 80
+        env:
+        - name: CONNECTION_STRING_DEV
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: connectionStringDEV
+        - name: CONNECTION_STRING_PROD
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: connectionStringPROD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: ResourceGroupPisoApp
+  name: pisoapp-backend-service
+spec:
+  loadBalancerIP: 13.80.176.112
+  type: LoadBalancer
+  selector:
+    app: pisoapp-backend
+  ports:
+  - port: 80
+
