@@ -38,6 +38,6 @@ spec:
   loadBalancerIP: 104.40.195.113
   type: LoadBalancer
   selector:
-    app: azure-load-balancer
+    app: pisoapp-backend
   ports:
   - port: 80
