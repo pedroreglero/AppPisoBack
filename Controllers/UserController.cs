@@ -59,6 +59,7 @@ namespace PisoAppBackend.Controllers
                 if (_DB.Usuarios.Any(u => u.Username.ToLower() == usuario.Username.ToLower()))
                     return Ok(new { success = false, error = "Ese usuario ya está registrado" });
 
+                usuario.HashedPassword = HashExtensions.Hash(usuario.HashedPassword);
                 _DB.Usuarios.Add(usuario);
                 _DB.SaveChanges();
                 return Ok(new { success = true, usuario = usuario });

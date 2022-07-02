@@ -16,6 +16,7 @@ namespace PisoAppBackend.Models
 
         [JsonIgnore]
         public virtual Usuario Assigner { get; set; }
+        [JsonIgnore]
         public virtual Piso Piso { get; set; }
         public virtual Usuario User { get; set; }
     }

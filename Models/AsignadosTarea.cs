@@ -16,7 +16,6 @@ namespace PisoAppBackend.Models
 
         [JsonIgnore]
         public virtual Usuario AssignedByNavigation { get; set; }
-        [JsonIgnore]
         public virtual Tarea Task { get; set; }
         public virtual Usuario User { get; set; }
     }

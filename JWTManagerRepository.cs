@@ -22,8 +22,10 @@ namespace PisoAppBackend
 
         public Usuario Authenticate(string username, string password, out string token)
         {
-            Usuario userResponse = DBContext.Usuarios.Where(u => u.Username == username && u.HashedPassword == password).Include(x => x.AsignadosTareaAssignedByNavigations).ThenInclude(x => x.Task)
-                .FirstOrDefault();
+            Usuario userResponse = DBContext.Usuarios.Where(u => u.Username == username && u.HashedPassword == HashExtensions.Hash(password))
+                .Include(x => x.AsignadosTareaAssignedByNavigations).ThenInclude(x => x.Task)
+                .Include(x => x.IntegrantesPisoUsers).ThenInclude(x => x.Piso)
+            .FirstOrDefault();
 
             if (userResponse != null)
             {

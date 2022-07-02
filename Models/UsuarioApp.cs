@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace PisoAppBackend.Models
 {
@@ -16,6 +17,18 @@ namespace PisoAppBackend.Models
                     tareas.Add(at.Task);
                 }
                 return tareas;
+            }
+        }
+
+        [NotMapped]
+        public Piso Assigned_Piso
+        {
+            get
+            {
+                if (this.IntegrantesPisoAssigners == null || this.IntegrantesPisoAssigners.Count == 0)
+                    return null;
+                else
+                    return this.IntegrantesPisoAssigners.First().Piso;
             }
         }
     }

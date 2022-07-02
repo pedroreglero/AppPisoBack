@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SEjTKzAkxIyMpb0qtoc4tmp5EusIq5ejJLgLMnDmGZdWnhjqONBb1sU3ny4kqFtpUSeXftGHYw4hHH8/jBWMdg==",
+  "dgSpecHash": "qFHSt9aQqpCArsnV77ncwzuezkZjDap9nzjVRbczNG2K3jP5/+zOX6tFpjXlQ0p7zXD4c6S7G8K6+jw5JFMXTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pedro\\OneDrive\\Documents\\repos\\AppPisoBack\\PisoAppBackend.csproj",
+  "projectFilePath": "C:\\Users\\Pedro\\Documents\\PisoAPP\\PisoAppBackend\\PisoAppBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pedro\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
@@ -142,11 +142,7 @@
     "C:\\Users\\Pedro\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Pedro\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512",
-    "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\Pedro\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

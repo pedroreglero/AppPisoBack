@@ -10,11 +10,13 @@ namespace PisoAppBackend.Models
         public Piso()
         {
             IntegrantesPisos = new HashSet<IntegrantesPiso>();
+            Tareas = new HashSet<Tarea>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<IntegrantesPiso> IntegrantesPisos { get; set; }
+        public virtual ICollection<Tarea> Tareas { get; set; }
     }
 }

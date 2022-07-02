@@ -28,7 +28,6 @@ namespace PisoAppBackend.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseMySQL(Startup.ConnectionString);
-                //optionsBuilder.UseLazyLoadingProxies();
             }
         }
 
@@ -77,7 +76,7 @@ namespace PisoAppBackend.Models
             {
                 entity.ToTable("Integrantes_Pisos");
 
-                entity.HasIndex(e => e.PisoId, "FK__Pisos");
+                entity.HasIndex(e => e.PisoId, "FK_Integrantes_Pisos_Pisos");
 
                 entity.HasIndex(e => e.UserId, "FK__Usuario");
 
@@ -103,7 +102,7 @@ namespace PisoAppBackend.Models
                     .WithMany(p => p.IntegrantesPisos)
                     .HasForeignKey(d => d.PisoId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Pisos");
+                    .HasConstraintName("FK_Integrantes_Pisos_Pisos");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.IntegrantesPisoUsers)
@@ -126,6 +125,8 @@ namespace PisoAppBackend.Models
             modelBuilder.Entity<Tarea>(entity =>
             {
                 entity.ToTable("Tarea");
+
+                entity.HasIndex(e => e.PisoId, "FK_Tarea_Pisos");
 
                 entity.HasIndex(e => e.CreatedBy, "FK_Tarea_Usuario");
 
@@ -161,6 +162,8 @@ namespace PisoAppBackend.Models
                     .HasColumnName("notify_assignees")
                     .HasDefaultValueSql("b'0'");
 
+                entity.Property(e => e.PisoId).HasColumnName("piso_id");
+
                 entity.Property(e => e.Status)
                     .HasColumnType("tinyint")
                     .HasColumnName("status");
@@ -180,6 +183,12 @@ namespace PisoAppBackend.Models
                     .WithMany(p => p.TareaFinishedByNavigations)
                     .HasForeignKey(d => d.FinishedBy)
                     .HasConstraintName("FK_Tarea_Usuario_2");
+
+                entity.HasOne(d => d.Piso)
+                    .WithMany(p => p.Tareas)
+                    .HasForeignKey(d => d.PisoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Tarea_Pisos");
             });
 
             modelBuilder.Entity<Usuario>(entity =>

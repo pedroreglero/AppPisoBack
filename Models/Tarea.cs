@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -24,13 +23,12 @@ namespace PisoAppBackend.Models
         public int? FinishedBy { get; set; }
         public DateTime? CancelledOn { get; set; }
         public int? CancelledBy { get; set; }
+        public int PisoId { get; set; }
 
-        [JsonIgnore]
         public virtual Usuario CancelledByNavigation { get; set; }
-        [JsonIgnore]
         public virtual Usuario CreatedByNavigation { get; set; }
-        [JsonIgnore]
         public virtual Usuario FinishedByNavigation { get; set; }
+        public virtual Piso Piso { get; set; }
         public virtual ICollection<AsignadosTarea> AsignadosTareas { get; set; }
     }
 }
